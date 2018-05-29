@@ -1,0 +1,149 @@
+<!--
+Written by Matt Bailey
+Debugged by Nick Baker
+Tested by Jacob Long and Manan Shah
+-->
+
+<html>
+
+<head>
+<title>Atmosphere - Bar Info</title>
+<style>
+body
+{
+  width:100%;
+  margin:auto;
+  min-width:600px;
+  max-width:2000px
+  height: 100%;
+  background-position: fixed;
+  padding: 0;
+  background-image: url("atmosphere.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+</style>
+<script language="javascript">
+
+
+var data = [
+
+];
+
+// Here's a function that formats data
+// passed to it in the above format
+// as a table. The HTML is returned
+// as a string.
+function createTable(data) {
+
+  var barName = <?php echo json_encode($_GET["name"]); ?>;
+
+    //   var singleElement = barName.split(',');
+    //
+    //
+    // barName = singleElement;
+
+
+
+	//var MyJSStringVar = "<?php Print($MyPHPStringVar); ?>";
+  // var barName = <?php echo json_encode($_GET["name"]); ?>;
+
+  var barDescrip = <?php echo json_encode($_GET["des"]); ?>;
+
+  var barRating = <?php echo json_encode($_GET["BR"]); ?>;
+
+  var barLength = <?php echo json_encode($_GET["ll"]); ?>;
+
+  var formalAtt = <?php echo json_encode($_GET["form1"]); ?>;
+
+  var casualAtt = <?php echo json_encode($_GET["cas"]); ?>;
+
+  var myCover = <?php echo json_encode($_GET["cov"]); ?>;
+
+  var partyAmb = <?php echo json_encode($_GET["part"]); ?>;
+
+  var laidAmb = <?php echo json_encode($_GET["laid"]); ?>;
+  var barImage = <?php echo json_encode($_GET["im"]); ?>;
+	var html = '';//necessary!!!!
+
+    html += '<iframe width="600" height="450" frameborder="0" style="border:3px solid lightgrey; margin-top:-500px;margin-left:1000px;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCFhMYxXHEfnJgQ23yuQm60Fzo8DHTqhzg&q=' + barName + ',Lawrence+KS" allowfullscreen></iframe>';
+    html += '<br><br><br>';
+  html += '<div style = "background-color: white; width: 85%; border: 25px solid blue; padding: 25px; margin-top:-750px"><b><p style = "font-size:30px"><u>'+barName+' </u></p><b>';
+	html += '<p><b><u>Description:</u> </b><br><br>'+barDescrip+'</p>';
+  html += '<b><p><u>Rating:</u> </b> '+barRating+' </p><br>';
+  if(barLength == "Short")
+  {
+      html += '<b><p><u>Line Length:</u> </b><font color="green">'+barLength+' </font></p><br>';
+  }
+  else if(barLength == "Medium")
+  {
+      html += '<b><p><u>Line Length:</u> </b><font color="orange">'+barLength+'</font></p><br>';
+  }
+  else
+  {
+      html += '<b><p><u>Line Length:</u> </b><font color="red">'+barLength+' </font></p><br>';
+  }
+
+	html += '<b><p><u>Formal Attire:</u> </b>'+formalAtt+'</p><br>';
+	html += '<b><p><u>Casual Attire:</u> </b>'+casualAtt+'</p><br>';
+	html += '<b><p><u>Cover:</u> </b>'+myCover+'</p><br>';
+	html += '<b><p><u>Party Ambience:</u> </b>'+partyAmb+'</p><br>';
+	html += '<b><p><u>Laid-back Ambience:</u> </b>'+laidAmb+'</p><br>';
+  // html += '<b><p><img src ="'+barImage+'"></p><br>';
+  html += '<b><p><a href="https://people.eecs.ku.edu/~nrbaker/448Project/help.html">Click Here for Help</a></b></p></div>';
+    return html;
+}
+//<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+// This function takes the formatted HTML
+// and inserts it into the document as
+// 'child' HTML of the specified element.
+function insertHTML(id, html) {
+    var el = document.getElementById(id);
+
+    if(!el) {
+        alert('Element with id ' + id + ' not found.');
+    }
+
+    el.innerHTML = html;
+}
+
+// This function ties things up.
+function run() {
+    var html = createTable(data);
+
+    insertHTML('tabledata', html);
+}
+
+// Run everything when the document loads.
+window.onload = run;
+
+</script>
+
+    <title>
+
+	 </title>
+    <meta content="">
+
+
+</head>
+
+<body>
+<style type="text/css">a {text-decoration: none}</style>
+<div align = "Left"><p style ="font-size:40px; color: white"><b><a href="https://people.eecs.ku.edu/~nrbaker/448Project/myUI.html"><font color="white">Atmosphere</font></a></b></p>
+  <p style ="font-size:15px; color: white; position: absolute; left:150px; right: 0px; top: 20px;"><b>A Nightlife Interactive System</b></p>
+  </div>
+  <div style = "margin-top:400px; margin-left: 500px;">
+  <?php
+  $src = $_GET["im"];
+  echo "<img src='$src'/>";
+  ?>
+</div>
+<br><br><br>
+
+<div id="tabledata"></div>
+
+</body>
+
+</html>

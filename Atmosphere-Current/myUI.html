@@ -1,0 +1,122 @@
+<!--
+myUI.HTML
+Written by Nick Baker and Manan Shah
+Debugged by Matt Bailey and Jacob Long
+Tested by all group members
+ -->
+
+
+
+
+<html>
+  <head>
+    <!-- Title of the page is called "Login Page" --><title>
+	Atmosphere
+	</title>
+    <meta content="">
+    <style>
+	body
+	{
+
+    width: 100%;
+    height: 100%;
+    background-position: fixed;
+		padding: 0;
+		margin: 0;
+		background-image: url("atmosphere.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+	}
+	/*div
+	{
+	 width: 100%;
+	 height: 100%;
+	}
+	*/
+  #Search
+  {
+
+   box-sizing: border-box;
+   border: 2px solid #ccc;
+
+   background-image: url("search_img.png");
+   background-size: 55px;
+   background-position: -9px -5px;
+   background-repeat: no-repeat;
+   padding: 12px 20px 12px 40px ;
+
+  }
+
+  #myButton
+  {
+
+    width: 200px;
+    height: 500px;
+
+
+  }
+  input[type="button"]
+  {
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none;
+  }
+</style>
+  </head>
+  <body>
+<div align ="center"><!-- align this text field to the left of the page -->
+<form action = "checkBarsOnDatabase.php" method = "post">
+<br><br><br><br>
+<div align = "Center"><p style ="font-size:120px; color: white"><b>Atmosphere</b></p>
+<p style ="font-size:20px; color: white; position: absolute; left:430px; right: 0px; top: 300px;"><b>A Nightlife Interactive System</b></p>
+<input type="text" size= "70" id = "Search" style="font-size:20px; <!-- position: absolute; --> left:500px; right: 0px; top: 550px;" placeholder="Search for Nightlife..." name = "mySearch" onblur = "checkTextField(this);"></input><!-- taking input from the user as a text field -->
+
+<br>
+
+<input type="submit" value ="Search by Name" style="font-size: 20px; width:200px; height:40px; margin-left: 0px; margin-right: 250px; margin-top: 30px;">
+</form><!-- When the button is clicked, run the login() javaScript function. -->
+<form action = "AttributeCheckList.html" method = "post">
+<input type="submit" value ="Search by Attribute" style="font-size: 20px; width:215px; height:40px; margin-left: 200px; margin-right: 0px; margin-top: -40px;">
+</form>
+</div>
+<a href="random.php" style = "margin-left: -40px;" name = "feeling" value = "hi"><font color ="white">Feeling Adventurous?</a></font>
+<script>
+var isEmpty = false;
+function checkTextField(field)
+{
+    if (field.value === '')
+    {
+        isEmpty = true;
+    }
+    else
+    {
+        isEmpty = false;
+    }
+
+}
+function login()
+{
+    if(isEmpty == true)
+    {
+      alert("Field is empty");
+      window.location.href = "https://people.eecs.ku.edu/~nrbaker/448Project/myUI.html";
+    }
+    else
+    {
+
+    }
+    // else
+    // {
+    //   window.location.href = "myUI.html";
+    // }
+}
+  // alert("Program development is on its way!");
+
+
+</script><!-- end script -->
+
+
+</div>
+</body>
+</html><!-- end html code-->

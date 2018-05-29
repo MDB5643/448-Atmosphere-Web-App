@@ -1,0 +1,113 @@
+<!--
+Written by Matt Bailey
+Debugged by Nick Baker
+Tested by Jacob Long and Manan Shah
+-->
+
+<html>
+  <head>
+    <title>
+      Atmosphere - Bar Attribute List
+    </title>
+
+    <meta content="">
+    <style>
+    body
+  	{
+
+      width: 100%;
+      height: 100%;
+      background-position: fixed;
+  		padding: 0;
+  		margin: 0;
+  		background-image: url("atmosphere.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+  	}
+
+    input[type="radio"] {
+        margin-left:10px;
+    }
+
+    </style>
+    <script language="javascript">
+
+
+    var data = [
+
+    ];
+
+    // Here's a function that formats data
+    // passed to it in the above format
+    // as a table. The HTML is returned
+    // as a string.
+    function createTable(data) {
+
+    	//var MyJSStringVar = "<?php Print($MyPHPStringVar); ?>";
+      var barArray = <?php echo json_encode($_GET["myList"]); ?>;
+      var array = barArray.split(',');
+
+      var html = ''
+      html += '<div align = "center"><p style ="font-size:55px; color: white"><b>List of Bars that match selected attributes: </b></p><p style ="font-size:25px; color: white">Please select a bar you would like to see more information about.</p></div><form action = "checkBfromList.php" method = "post"><div align= "center"><div style = "background-color: white; width:225px; height: 200px; border: 25px solid blue; padding: 25px;">'
+      for(var i = 0; i < array.length; i++)
+      {
+        if(array[i] == '')
+        {
+          break;
+        }
+        else
+        {
+            html += '<div align = "center"><input type="radio"name="bar" id = "two" value="' + array[i] +'" checked><b>' + array[i] + '</b>';
+        }
+
+      }
+      html += '<br><br><br><input type="submit" value="Submit Bar Choice"></div></div></form>';
+
+  //     var bar1 = 'Tonic'
+	// var bar2 = 'Sandbar'
+	// var bar3 = 'Jayhawk Cafe'
+
+
+  //   html += '<form action = "CheckBfromList.php" method = "post"><input type="radio" name="bar" id = "one" value="' + bar1 +'" checked> ' + bar1 + '<br>';
+	// html += '<input type="radio" name="bar" id = "two" value="' + bar2 +'" checked> ' + bar2 + '<br>';
+	// html += '<input type="radio" name="bar" id = "three" value="' + bar3 +'" checked> ' + bar3 + '<br><br>';
+	// html += '<input type="submit" value="Submit" onclick = "subfunc()"></form>';
+
+    return html;
+    }
+    //<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+    // This function takes the formatted HTML
+    // and inserts it into the document as
+    // 'child' HTML of the specified element.
+    function insertHTML(id, html) {
+        var el = document.getElementById(id);
+
+        if(!el) {
+            alert('Element with id ' + id + ' not found.');
+        }
+
+        el.innerHTML = html;
+    }
+
+    // This function ties things up.
+    function run() {
+        var html = createTable(data);
+
+        insertHTML('tabledata', html);
+    }
+
+    // Run everything when the document loads.
+    window.onload = run;
+
+    </script>
+  </head>
+  <body>
+  <style type="text/css">a {text-decoration: none}</style>
+  <div align = "Left"><p style ="font-size:40px; color: white"><b><a href="https://people.eecs.ku.edu/~nrbaker/448Project/myUI.html"><font color="white">Atmosphere</font></a></b></p>
+  <p style ="font-size:15px; color: white; position: absolute; left:150px; right: 0px; top: 20px;"><b>A Nightlife Interactive System</b></p>
+  </div>
+
+    <div id="tabledata"></div>
+  </body>
+</html>

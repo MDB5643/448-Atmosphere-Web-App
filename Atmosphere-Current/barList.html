@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>
+	Webpage<!-- title of webpage -->
+</title>
+    <meta content="">
+    <style>
+	body
+	{
+		background-color: rgb(0,200,255);
+	}
+	</style>
+  </head>
+  <body>
+  <div align ="middle"><!-- Align to the middle of the page. Below is php for getting the source of the username's image-->
+  <?php $theName = $_GET["name"]; ?>
+
+  <?php $theDes = $_GET["des"]; ?>
+
+  <?php $theRate = $_GET["BR"]; ?>
+
+  <?php $theLength = $_GET["ll"]; ?>
+
+  <?php $theFormal = $_GET["form1"]; ?>
+
+  <?php $theCasual = $_GET["cas"]; ?>
+
+  <?php $theParty = $_GET["part"]; ?>
+
+  <?php $theLaidBack = $_GET["laid"]; ?>
+
+
+<p style ="color:green;font-size:120px;"></p><!-- Set font color and size to green and 120 pixels -->
+<br>
+<a href = "http://www.ku.edu/" target="_blank">KU Homepage</a><!-- Creates a link to the KU Homepage and also the keyword "target" will open up a new tab-->
+</div>
+
+</body>
+</html><!-- End html file -->

@@ -1,0 +1,94 @@
+<!--
+Written by Manan Shah
+Debugged by Jacob Long
+Tested by Matt Bailey and Nick Baker
+-->
+
+<HTML>
+  <head>
+
+    <title>
+      Atmosphere - Bar Attributes
+    </title>
+
+      <meta charset="utf-8" />
+
+      <style>
+      body
+      {
+        width: 100%;
+        height: 100%;
+        background-position: fixed;
+        padding: 0%;
+        margin: 0%;
+        background-image: url("atmosphere.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      </style>
+
+    </head>
+
+    <body>
+      <style type="text/css">a {text-decoration: none}</style>
+      <div align = "Left"><p style ="font-size:40px; color: white"><b><a href="https://people.eecs.ku.edu/~nrbaker/448Project/myUI.html"><font color="white">Atmosphere</font></a></b></p>
+      <p style ="font-size:15px; color: white; position: absolute; left:150px; right: 0px; top: 20px;"><b>A Nightlife Interactive System</b></p>
+      </div>
+
+      <form action = "checkAttributesOnDatabase.php" method = "post">
+      <div align ="center"><p style="font-size:55px; color: white"><b>Attribute Checklist</b></p></div>
+      <div align ="center"><p style="font-size:25px; color: white">Please select multiple attributes to be used to <br>search for the specific bar that you want.
+        Then click the submit button.<br><b>Note:</b> More than one attire or atmosphere cannot be selected</p></div>
+      <div align= "center"><div style = "background-color: white; width:200px; border: 25px solid blue; padding: 25px;">
+      <br>
+      <b>
+      <div align ="Center"><p style ="font-size: 17px;"><input type = "checkbox"
+          id = "chkCover" name = "cov"
+            value = "Cover" />
+        <label for = "chkCover">Don't want to pay cover</label>
+        </div>
+      <br>
+
+      <div align ="Center"><p style ="font-size: 17px;"><input type = "checkbox"
+          id = "chkLineLength" name = "line"
+            value = "Line Length"
+        <label for = "chkLineLength">Don't want to wait in line very long</label>
+        </div>
+      <br>
+
+      <div align ="Center"><p style ="font-size: 17px;"><input type ="checkbox"
+        id = "chkFmlAttire" name = "formatt"
+            value = "Formal Attire" />
+      <label for = "chkFmlAttire">Formal/Semi-formal Attire</label>
+    </div>
+      <br>
+
+      <div align ="Center"><p style ="font-size: 17px;"><input type ="checkbox" checked
+        id = "chkCslAttire" name = "casatt"
+          value = "Casual Attire" />
+      <label for = "chkCslAttire">Casual Attire</label>
+      </div>
+      <br>
+
+      <div align ="Center"><p style ="font-size: 17px;"><input type ="checkbox" checked
+        id = "chkParty" name = "partyam"
+          value ="Party Ambience" />
+      <label for = "chkParty">Party Atmosphere</label>
+      </div>
+      <br>
+
+
+      <div align ="Center"><p style ="font-size: 17px;"><input type ="checkbox"
+        id = "chkLaidBack" name = "laidam"
+          value ="Laid-back Ambience" />
+      <label for = "chkLaidBack">Laid-back Atmosphere</label>
+      </div>
+      <br>
+
+      <input type="submit" value="Submit Checklist">
+    </b>
+    </div>
+    </form>
+    </body>
+  </html>
